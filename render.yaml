@@ -25,7 +25,6 @@ services:
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn verification_engine_service.verification_engine.main:app --host 0.0.0.0 --port $PORT
-    healthCheckPath: /api/v1/health
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.7
@@ -42,7 +41,6 @@ services:
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: python -m simulated_evidence.seed && uvicorn simulated_evidence.main:app --host 0.0.0.0 --port $PORT
-    healthCheckPath: /api/v1/health
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.7
