@@ -1,0 +1,10 @@
+INFO:     127.0.0.1:56683 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50356 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52149 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57255 - "GET /api/v1/shipments/CP001 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49252 - "GET /api/v1/containers/ABC123 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49251 - "GET /api/v1/vessels/IMO1234567/gps HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49253 - "GET /api/v1/containers/ABC123/events HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49255 - "GET /api/v1/shipments/CP001/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49250 - "GET /api/v1/vessels/IMO1234567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49254 - "GET /api/v1/shipments/CP001/inspections HTTP/1.1" 200 OK

@@ -1,0 +1,4 @@
+INFO:     127.0.0.1:56684 - "GET /health HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50357 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52150 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57254 - "POST /api/v1/verify HTTP/1.1" 200 OK
