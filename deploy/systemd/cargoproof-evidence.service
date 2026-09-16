@@ -1,0 +1,16 @@
+[Unit]
+Description=CargoProof Simulated Evidence API
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/cargoproof
+EnvironmentFile=/opt/cargoproof/.env
+Environment=PYTHONPATH=/opt/cargoproof
+ExecStart=/opt/cargoproof/.venv/bin/uvicorn simulated_evidence.main:app --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=3
+User=cargoproof
+
+[Install]
+WantedBy=multi-user.target

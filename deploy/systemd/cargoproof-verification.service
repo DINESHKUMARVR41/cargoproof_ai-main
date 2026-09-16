@@ -1,0 +1,17 @@
+[Unit]
+Description=CargoProof Verification Engine
+After=network.target cargoproof-evidence.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/cargoproof/verification_engine_service
+EnvironmentFile=/opt/cargoproof/.env
+Environment=PYTHONPATH=/opt/cargoproof/verification_engine_service
+Environment=EVIDENCE_API_URL=http://127.0.0.1:8000
+ExecStart=/opt/cargoproof/.venv/bin/uvicorn verification_engine.main:app --host 127.0.0.1 --port 8001
+Restart=always
+RestartSec=3
+User=cargoproof
+
+[Install]
+WantedBy=multi-user.target

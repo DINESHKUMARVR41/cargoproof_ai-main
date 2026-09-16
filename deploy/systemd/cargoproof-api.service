@@ -1,0 +1,15 @@
+[Unit]
+Description=CargoProof Node API
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/cargoproof
+EnvironmentFile=/opt/cargoproof/.env
+ExecStart=/usr/bin/npm run server
+Restart=always
+RestartSec=3
+User=cargoproof
+
+[Install]
+WantedBy=multi-user.target
