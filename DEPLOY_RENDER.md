@@ -4,10 +4,10 @@ The included `render.yaml` creates four services in Singapore:
 
 - `cargoproof-dashboard`: public static dashboard.
 - `cargoproof-api`: public Node API.
-- `cargoproof-verification-engine`: private FastAPI rules engine.
-- `cargoproof-evidence-api`: private FastAPI simulated-evidence API.
+- `cargoproof-verification-engine`: FastAPI rules engine.
+- `cargoproof-evidence-api`: FastAPI simulated-evidence API.
 
-The services use Render private-network discovery; no internal hostname is hardcoded. The static-site build writes the API's public URL to `frontend/config.js`. Local development is unchanged because that file is blank in Git and the frontend retains its `localhost:4021` fallback.
+The Blueprint uses public service URLs so it works on Render's free plan, which does not support private services. No URL is hardcoded: Render injects each dependent service's URL during Blueprint sync. The static-site build writes the API's public URL to `frontend/config.js`. Local development is unchanged because that file is blank in Git and the frontend retains its `localhost:4021` fallback.
 
 ## Deploy
 

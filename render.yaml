@@ -12,35 +12,37 @@ services:
         value: 22.20.0
       - key: DEMO_MODE
         value: "true"
-      - key: VERIFICATION_ENGINE_HOSTPORT
+      - key: VERIFICATION_ENGINE_URL
         fromService:
           name: cargoproof-verification-engine
-          type: pserv
-          property: hostport
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
 
-  - type: pserv
+  - type: web
     runtime: python
     name: cargoproof-verification-engine
     region: singapore
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn verification_engine_service.verification_engine.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/v1/health
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.7
-      - key: EVIDENCE_API_HOSTPORT
+      - key: EVIDENCE_API_URL
         fromService:
           name: cargoproof-evidence-api
-          type: pserv
-          property: hostport
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
 
-  - type: pserv
+  - type: web
     runtime: python
     name: cargoproof-evidence-api
     region: singapore
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: python -m simulated_evidence.seed && uvicorn simulated_evidence.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/v1/health
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.7
