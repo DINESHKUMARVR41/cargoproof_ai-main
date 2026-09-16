@@ -1,6 +1,7 @@
-const API = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") && window.location.port === "5173"
+const configuredApi = window.CARGOPROOF_API_URL?.replace(/\/$/, "");
+const API = configuredApi || ((window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") && window.location.port === "5173"
   ? "http://localhost:4021"
-  : "";
+  : "");
 
 const $ = (id) => document.getElementById(id);
 

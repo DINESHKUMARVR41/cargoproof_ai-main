@@ -60,6 +60,9 @@ const FACILITATOR_URL =
 
 const VERIFICATION_ENGINE_URL =
   process.env.VERIFICATION_ENGINE_URL ||
+  (process.env.VERIFICATION_ENGINE_HOSTPORT
+    ? `http://${process.env.VERIFICATION_ENGINE_HOSTPORT}`
+    : undefined) ||
   "http://127.0.0.1:8001";
 
 const X402_ALGORAND_TESTNET_NETWORK =
@@ -1276,6 +1279,9 @@ async function startServer() {
 
       port:
         PORT,
+
+      hostname:
+        "0.0.0.0",
     },
 
     (info) => {
